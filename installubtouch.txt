@@ -1,0 +1,16 @@
+(Requires ADB + Fastboot, Linux on the PC and Git)
+
+To update do this except Step 3.
+
+1. Download everything that comes when you enter "#ubuntu-touch-dl" here PLUS the latest ubports-touch.rootfs-xenial-armhf.tar.gz from https://ci.ubports.com/job/xenial-rootfs-armhf/
+2. Plug In your phone and go into twrp
+3. Format the data partition with ext4 (Format != Wipe) [Do not do if updating]
+4. Go into bootloader and run fastboot flash boot halium-boot.img, then boot into twrp
+5. Clone https://gitlab.com/JBBgameich/halium-install git repository and go into that folder
+6. Run ./halium-install -v -p ut path/to/ubports-touch.rootfs-xenial-armhf.tar.gz path/to/system.img
+7. Reboot your phone.
+8. (optional) Run dmesg -w and look for an GNU/Linux device.
+9. Connect your computer to the RNDIS network that appeared when you rebooted your phone. (If not already happened.)
+10. Connect via SSH: ssh phablet@10.15.19.82
+11. Follow the display part of that guide: http://docs.ubports.com/en/latest/porting/running-ut.html
+You made it!
